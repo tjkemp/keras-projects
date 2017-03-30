@@ -1,64 +1,22 @@
 *********************************************************************
-Keras for MNIST data set, plot the accuracy and evaluate the model
+Keras for MNIST data set, accuracy plot and model evaluation
 *********************************************************************
 
 The task
 ===========
 
-Use KERAS to train a model in Keras to recognize the MNIST data set, plot the accuracy and evaluate the model.
-
+Train a model in Keras to recognize the MNIST data set, plot the accuracy and evaluate the model.
 The model is 3 hidden layers deep. The run example shows the details of the model.
 
 With this non-optimized model we get an accuracy of about 96,5%.
 The model started to overfit after 50 epochs.
 
-Installation
-================
-
-To start the project create a virtualenv for it and install
-keras.
-
-```bash
-	mkproject keras-test
-	pip install keras
-```
-
-Curiously by default it uses tensorflow but installs Theano. To fix it, try to import keras once and then change the default engine with
-
-.. code-block:: bash
-	your_favorite_text_editor ~/.keras.keras.json
-
-To do this enter python shell and try to import something from Keras. You’ll get “ImportError: No module named 'tensorflow'”
-
-.. code-block:: python
-	from keras.datasets import mnist
-
-Edit the configuration file and replace “tensorflow” with “theano”.
-
-.. code-block:: bash
-	your_favorite_text_editor ~/.keras/keras.json
-
-It still doesn’t work unless you got all the python development stuff installed.
-
-.. code-block:: bash
-	sudo apt-get install python3-dev
-
-To visualize the stuff we need matplotlib but installing it doesn’t work out of the box either. It will raise an ImportError: “No
-module named '_tkinter', please install the python3-tk package”.
-
-To fix it, type:
-.. code-block:: bash
-	sudo apt-get install python3-tk
-
-And then install matplotlib.
-
-.. code-block:: bash
-	pip install matplotlib
 
 An example run
 ==================
 
 .. code-block:: bash
+
 	(keras-projects) tero@Ubik:~/Projects/keras-projects/mnist$ python train.py
 	Using Theano backend.
 	Input: 60000 samples in training set (of which 9960 are used for validation) and 10000 samples in test test.
