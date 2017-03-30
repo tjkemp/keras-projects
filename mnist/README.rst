@@ -18,9 +18,10 @@ Installation
 To start the project create a virtualenv for it and install
 keras.
 
-.. code-block:: bash
+```bash
 	mkproject keras-test
 	pip install keras
+```
 
 Curiously by default it uses tensorflow but installs Theano. To fix it, try to import keras once and then change the default engine with
 
