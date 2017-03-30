@@ -11,6 +11,8 @@ The model is 3 hidden layers deep. The run example shows the details of the mode
 With this non-optimized model we get an accuracy of about 96,5%.
 The model started to overfit after 50 epochs.
 
+.. figure:: mnist_plot.png
+    :align: center
 
 An example run
 ==================
