@@ -1,3 +1,4 @@
 # Examples and tests with Keras
 
-- [MNIST example](mnist/)
+- [MNIST model tests](mnist/)
+- [IMDB example](imdb/)
