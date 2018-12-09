@@ -1,23 +1,29 @@
-*********************************************************************
-Keras for MNIST data set, accuracy plot and model evaluation
-*********************************************************************
+# Keras for MNIST data set
 
-The task
-===========
+The task is to rain a model to recognize the MNIST data set and plot accuracy.
 
-Train a model in Keras to recognize the MNIST data set, plot the accuracy and evaluate the model.
-The model is 3 hidden layers deep. The run example shows the details of the model.
+## Usage
 
-With this non-optimized model we get an accuracy of about 96,5%.
-The model started to overfit after 50 epochs.
+The simple model (28 neuros) can be trained with:
 
-.. figure:: mnist_plot.png
-    :align: center
+```sh
 
-An example run
-==================
+python train_small.py
 
-.. code-block:: bash
+```
+
+and the bigger (512 neurons per layer and using dropout) with:
+
+```sh
+
+python train_wdropout.py
+
+```
+
+
+## An example run
+
+```sh
 
 	(keras-projects) tero@Ubik:~/Projects/keras-projects/mnist$ python train.py
 	Using Theano backend.
@@ -48,3 +54,31 @@ An example run
 	Final score: 0.116527532629
 	Final accuracy: 0.965
 
+```
+
+## Results
+
+The models are 2 hidden layers deep. The example shows the details of the model.
+
+50000 images are used for training, 10000 for development (validation) and 10000 for testing for final accuracy.
+
+### 2 hidden layer, 28 neuron per layer model
+
+Right of the bat with a small non-optimized model we get an accuracy of about 96,5% which is awesome. No sweating
+with feature engineering either.
+
+![28 neuron model](images/model_28n.png)
+
+### 2 hidden layer, 512 neuron per layer model (with dropout)
+
+We get final accuracy of 98.04% after 20 epochs.
+
+The bigger model takes considerably more time to train without a GPU. 
+
+![512 neuron model](images/model_512n.png)
+
+### 2 hidden layer, 512 neuron per layer model (without dropout)
+
+Final accuracy of 98.36% after 20 epochs.
+
+![512 neuron model with dropout](images/model_512n_wdropout.png)
