@@ -25,35 +25,35 @@ python train_wdropout.py
 
 ```sh
 
-	(keras-projects) tero@Ubik:~/Projects/keras-projects/mnist$ python train.py
-	Using Theano backend.
-	Input: 60000 samples in training set (of which 9960 are used for validation) and 10000 samples in test test.
-	____________________________________________________________________________________________________
-	Layer (type) Output Shape Param # Connected to
-	====================================================================================================
-	dense_1 (Dense) (64, 28, 28) 812 dense_input_1[0][0]
-	____________________________________________________________________________________________________
-	dense_2 (Dense) (64, 28, 28) 812 dense_1[0][0]
-	____________________________________________________________________________________________________
-	flatten_1 (Flatten) (64, 784) 0 dense_2[0][0]
-	____________________________________________________________________________________________________
-	dense_3 (Dense) (64, 10) 7850 flatten_1[0][0]
-	====================================================================================================
-	Total params: 9,474
-	Trainable params: 9,474
+	(keras-projects) /Projects/keras-projects/mnist$ python train_simple.py
+	
+	60000 samples in training set (of which 10000 are used for validation).
+	10000 samples in test test.
+	_________________________________________________________________
+	Layer (type)                 Output Shape              Param #
+	=================================================================
+	dense_1 (Dense)              (None, 28)                21980
+	_________________________________________________________________
+	dense_2 (Dense)              (None, 28)                812
+	_________________________________________________________________
+	dense_3 (Dense)              (None, 10)                290
+	=================================================================
+	Total params: 23,082
+	Trainable params: 23,082
 	Non-trainable params: 0
-	____________________________________________________________________________________________________
-	Train on 50040 samples, validate on 9960 samples
-	Epoch 1/120
-	50040/50040 [==============================] - 2s - loss: 1.3150 - acc: 0.6287 - val_loss: 0.5515 - val_acc: 0.8499
+	_________________________________________________________________
+	Train on 50000 samples, validate on 10000 samples
+	Epoch 1/60
+	2018-12-09 15:38:09.720582: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX
+	50000/50000 [==============================] - 2s 39us/step - loss: 1.3469 - acc: 0.6095 - val_loss: 0.6148 - val_acc: 0.8446
+	Epoch 2/60
+	50000/50000 [==============================] - 2s 35us/step - loss: 0.5004 - acc: 0.8648 - val_loss: 0.3805 - val_acc: 0.8943
+	Epoch 3/60
 	.
 	.
-	.
-	Epoch 120/120
-	50040/50040 [==============================] - 4s - loss: 0.0853 - acc: 0.9743 - val_loss: 0.1158 - val_acc: 0.9689
-	Final score: 0.116527532629
-	Final accuracy: 0.965
-
+	50000/50000 [==============================] - 2s 34us/step - loss: 0.0831 - acc: 0.9766 - val_loss: 0.1247 - val_acc: 0.9642
+	Final score: 0.12460193493627011
+	Final accuracy: 0.9622
 ```
 
 ## Results
