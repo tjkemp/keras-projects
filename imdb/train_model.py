@@ -1,21 +1,21 @@
 from keras.preprocessing import sequence
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation
-from keras.layers import Embedding
+from keras.layers import Embedding, Flatten
 from keras.layers import Conv1D, GlobalMaxPooling1D
 from keras.datasets import imdb
 import matplotlib.pyplot as plt
 
-max_features = 500
-maxlen = 400
+max_features = 5000
+maxlen = 20
 
-embedding_dims = 50
+embedding_dims = 10
 filters = 250
 kernel_size = 3
 hidden_dims = 250
 
 batch_size = 32
-epochs = 2
+epochs = 3
 
 def plot_history(history, filename=None, show=True):
     """ Plots accuracy and loss. """
@@ -58,7 +58,7 @@ def main():
     model = Sequential()
 
     # start off with an efficient embedding layer which maps
-    # our vocab indices into embedding_dims dimensions
+    # our vocabulary indices into embedding_dims dimensions
     model.add(Embedding(max_features,
                         embedding_dims,
                         input_length=maxlen))
@@ -78,19 +78,21 @@ def main():
     model.add(Activation('relu'))
 
     # project onto a single unit output layer, and squash it with a sigmoid:
-    model.add(Dense(1))
-    model.add(Activation('sigmoid'))
+    model.add(Dense(1, activation='sigmoid'))
+    #model.add(Activation('sigmoid'))
 
     model.compile(loss='binary_crossentropy',
                 optimizer='adam',
                 metrics=['accuracy'])
     
+    model.summary()
+
     history = model.fit(x_train, y_train,
             batch_size=batch_size,
             epochs=epochs,
             validation_data=(x_test, y_test))
 
-    plot_history(history, filename="images/imdb.png")
+    plot_history(history)
 
 if __name__ == "__main__":
     main()

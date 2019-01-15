@@ -62,7 +62,7 @@ def main():
     print('Final score:', score[0])
     print('Final accuracy:', score[1])
 
-    common.plot_history(history, filename="images/model_28n.png")
+    common.plot_history(history)
 
 if __name__ == "__main__":
     main()

@@ -93,7 +93,7 @@ def main():
             epochs=epochs,
             validation_data=(x_val, y_val))
 
-    plot_history(history, filename="images/imdb_simple.png")
+    plot_history(history)
 
 if __name__ == "__main__":
     main()
