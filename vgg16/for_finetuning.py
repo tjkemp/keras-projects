@@ -57,7 +57,7 @@ history = model.fit_generator(
 
 conv_base_trainable = False
 for layer in conv_base.layers:
-    if layer_name == 'block5_conv1':
+    if layer.name == 'block5_conv1':
         set_trainable = True
         if set_trainable:
             layer.trainable = True
